@@ -24,3 +24,8 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+# 5. LANZADORES LOCALES CON RUTAS FIJAS
+*.vbs
+*.bat
+*.lnk
