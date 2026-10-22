@@ -1,0 +1,26 @@
+# 1. CREDENCIALES Y SESIONES (CRÍTICO)
+.env
+.env.*
+!.env.example
+.spotify_cache
+.cache*
+
+# 2. BASE DE DATOS LOCAL (DATOS PRIVADOS)
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# 3. ENTORNO VIRTUAL Y CACHÉ DE PYTHON
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 4. ARCHIVOS DE SISTEMA Y EDITOR
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Weekly Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #121212;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #282828;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#0f0f0f] text-zinc-100 font-sans select-none overflow-x-hidden p-3"
+  >
+    <!-- REPRODUCTOR ACTUAL -->
+    <div
+      class="bg-[#181818] border border-zinc-800/80 rounded-2xl p-3.5 shadow-lg"
+    >
+      <div class="flex items-center gap-3.5">
+        <img
+          id="album-art"
+          src="https://via.placeholder.com/80?text=♪"
+          class="w-16 h-16 rounded-xl object-cover shadow-md border border-zinc-700/40"
+          alt="Cover"
+        />
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between gap-1">
+            <span
+              class="text-[10px] uppercase tracking-wider font-semibold text-emerald-400"
+              >Reproduciendo</span
+            >
+            <span
+              id="weekly-badge"
+              class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-medium px-2 py-0.5 rounded-full"
+            >
+              0x esta sem.
+            </span>
+          </div>
+          <h1
+            id="track-name"
+            class="text-sm font-bold text-white truncate mt-0.5"
+          >
+            Sin reproducción activa
+          </h1>
+          <p id="artist-name" class="text-xs text-zinc-400 truncate">
+            Abre Spotify y pon música
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <div class="w-full bg-zinc-800 h-1.5 rounded-full overflow-hidden">
+          <div
+            id="progress-bar"
+            class="bg-emerald-500 h-full w-0 transition-all duration-500"
+          ></div>
+        </div>
+        <div class="flex items-center justify-center gap-6 mt-2.5">
+          <button
+            onclick="sendControl('previous')"
+            class="text-zinc-400 hover:text-white transition text-xs font-bold"
+          >
+            ⏮ ANTERIOR
+          </button>
+          <button
+            onclick="sendControl('toggle-play')"
+            class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs px-4 py-1.5 rounded-full transition"
+          >
+            PLAY / PAUSA
+          </button>
+          <button
+            onclick="sendControl('next')"
+            class="text-zinc-400 hover:text-white transition text-xs font-bold"
+          >
+            SIGUIENTE ⏭
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PESTAÑAS -->
+    <div
+      class="flex gap-2 mt-3 bg-[#181818] p-1 rounded-xl border border-zinc-800/80"
+    >
+      <button
+        id="tab-top"
+        onclick="switchTab('top')"
+        class="flex-1 py-1.5 text-xs font-semibold rounded-lg bg-zinc-800 text-white transition"
+      >
+        🔥 Top 5 Semana
+      </button>
+      <button
+        id="tab-playlists"
+        onclick="switchTab('playlists')"
+        class="flex-1 py-1.5 text-xs font-semibold rounded-lg text-zinc-400 hover:text-white transition"
+      >
+        💿 Mis Playlists
+      </button>
+    </div>
+
+    <!-- CONTENEDORES DINÁMICOS -->
+    <div id="view-top" class="mt-2.5 space-y-1.5"></div>
+    <div
+      id="view-playlists"
+      class="mt-2.5 space-y-1.5 hidden max-h-64 overflow-y-auto pr-1"
+    ></div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
